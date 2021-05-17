@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
+from decouple import config
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -20,7 +21,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '&buatzc%pq9%70mxp789oq1yk%5s*^)%^zchh1c%$)splx6u$$'
+SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -128,8 +129,8 @@ MEDIA_URL = '/media/'
 
 if DEBUG:
     # Test Keys
-    STRIPE_PUBLISHABLE_KEY = 'pk_test_51HGUX3J5EFDdtWwIeE7btARd4l2I6FcE8RZlMiuFj4adk4eEsaHN1LoBi28xPtBEpKY97Jf9EBjqyQWqtE7oC5NN00Ap20g0zN'
-    STRIPE_SECRET_KEY = 'sk_test_51HGUX3J5EFDdtWwIZ8h5QIGkgs324qObgm7gLLDjlUGxARc260DZznYdO9rgBx7Wig2n1FiVI6FiBFUKyBuOzcuc00P6JWcniR'
+    STRIPE_PUBLISHABLE_KEY = config('STRIPE_PUBLISHABLE_KEY')
+    STRIPE_SECRET_KEY = config('STRIPE_SECRET_KEY')
 
 # else:
 #     # Live
